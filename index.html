@@ -7,6 +7,7 @@
 <meta name="description" content="JoyACG最新網址發布頁">
 <title>JoyACG - 最新網址發布頁</title>
 <link rel="icon" href="https://joyacg.com/favicon.ico">
+<link rel="manifest" href="/manifest.json">
 <link rel="stylesheet" href="https://unpkg.com/bootswatch@5.3.8/dist/brite/bootstrap.min.css">
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.0.1/css/all.min.css">
 <style>
@@ -14,6 +15,7 @@ a{text-decoration:none}
 .card-header img{width:40px;height:40px;margin-right:.5rem;}
 .card-header-title{font-weight:600;}
 </style>
+<script src="https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script defer src="https://um.268888.xyz/script.js" data-website-id="8d2f5bdd-d976-4ca7-8e58-47ecfdb00f7a"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GZ44VXJD8"></script>
@@ -40,6 +42,7 @@ a{text-decoration:none}
           <p class="mb-1">發布頁②：<a href="https://joyacg.netlib.re" target="_blank"><span class="text-info">https://joyacg.netlib.re</span></a></p>
           <p class="mb-1">發布頁③：<a href="https://taigt.github.io/joyacg" target="_blank"><span class="text-info">https://taigt.github.io/joyacg</span></a></p>
           <p class="mb-2">最新網址都將在此更新，防迷路。請記得以上域名！永久有效！建議收藏！</p>
+          <p class="mb-2" style="display:none"><button class="btn btn-info w-100"><i class="fa-solid fa-desktop"></i> 安裝桌面應用程式</button></p>
           <p class="mb-2"><button class="btn btn-primary w-100"><i class="fa-solid fa-keyboard"></i> 按 Ctrl + D 收藏</button></p>
 
 <p class="mb-2"><a href="https://joyacg.top" target="_blank" class="btn btn-warning w-100"><i class="fa-solid fa-arrow-up-right-from-square"></i> 最新網址 joyacg.top</a></p>
@@ -126,6 +129,30 @@ a{text-decoration:none}
   </div>
 </div>
 
-<script src="https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('Service Worker 注册成功'))
+      .catch(err => console.error('注册失败:', err));
+  }
+
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'inline-block';
+  });
+
+  installBtn.addEventListener('click', () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        installBtn.style.display = 'none';
+      });
+    }
+  });
+</script>
 </body>
 </html>
