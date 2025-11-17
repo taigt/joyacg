@@ -112,6 +112,18 @@ a{text-decoration:none}
   </div>
 </div>
 
+<!-- iOS安裝提示 -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+  <div id="iosInstallToast" class="toast align-items-center text-bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        📱 在 Safari 中點選 <strong>分享按鈕 <i class="fa-solid fa-arrow-up-from-bracket"></i></strong> → <strong>新增至主畫面</strong>，即可安裝本頁。
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="關閉"></button>
+    </div>
+  </div>
+</div>
+
 <!-- 安卓App 模态框 -->
 <div class="modal fade" id="sitename" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered text-dark">
@@ -155,6 +167,15 @@ a{text-decoration:none}
       });
     }
   });
+
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+  if (isIos && isSafari) {
+    const toastEl = document.getElementById('iosInstallToast');
+    const toast = new bootstrap.Toast(toastEl, { autohide: false });
+    toast.show();
+  }
 </script>
 </body>
 </html>
