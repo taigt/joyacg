@@ -144,38 +144,49 @@ a{text-decoration:none}
 </div>
 
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-      .then(() => console.log('Service Worker 注册成功'))
-      .catch(err => console.error('注册失败:', err));
-  }
-
-  let deferredPrompt;
-  const installBtn = document.getElementById('installBtn');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtn.style.display = 'inline-block';
-  });
-
-  installBtn.addEventListener('click', () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        installBtn.style.display = 'none';
-      });
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Service Worker 註冊成功'))
+        .catch(err => console.error('註冊失敗：', err));
     }
-  });
 
-  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
 
-  if (isIos && isSafari) {
-    const toastEl = document.getElementById('iosInstallToast');
-    const toast = new bootstrap.Toast(toastEl, { autohide: false });
-    toast.show();
-  }
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'inline-block';
+    });
+
+    installBtn.addEventListener('click', () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('用戶接受安裝');
+          }
+          installBtn.style.display = 'none';
+        });
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('PWA 已安裝');
+      localStorage.setItem('pwaInstalled', 'true');
+    });
+
+    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    const alreadyInstalled = localStorage.getItem('pwaInstalled');
+
+    if (!isStandalone && !alreadyInstalled && isIos && isSafari) {
+      const toastEl = document.getElementById('iosInstallToast');
+      const toast = new bootstrap.Toast(toastEl, { autohide: false });
+      toast.show();
+    }
 </script>
 </body>
 </html>
