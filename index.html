@@ -6,14 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 <meta name="description" content="JoyACG最新網址發布頁">
 <title>JoyACG - 最新網址發布頁</title>
-<link rel="icon" href="https://joyacg.com/favicon.ico">
+<link rel="icon" href="/favicon.ico">
 <link rel="manifest" href="/manifest.json">
 <link rel="apple-touch-icon" href="/android-chrome-192x192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="stylesheet" href="https://unpkg.com/bootswatch@5.3.8/dist/brite/bootstrap.min.css">
-<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.0.1/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.1.0/css/all.min.css">
 <style>
 a{text-decoration:none}
 .card-header img{width:40px;height:40px;margin-right:.5rem;}
@@ -39,7 +39,7 @@ a{text-decoration:none}
       <!-- 顶部公告卡片 -->
       <div class="card text-dark mb-3">
         <h3 class="card-header d-flex align-items-center">
-          <img src="https://joyacg.com/apple-touch-icon-180x180.png" class="rounded">JoyACG發布頁
+          <img src="/android-chrome-192x192.png" class="rounded">JoyACG發布頁
         </h3>
         <div class="card-body">
           <p class="mb-1">發布頁①：<a href="https://joyacg.pages.dev" target="_blank"><span class="text-info">https://joyacg.pages.dev</span></a></p>
@@ -80,7 +80,7 @@ a{text-decoration:none}
         <div class="col-12 col-sm-6">
           <div class="card text-dark">
             <div class="card-header d-flex align-items-center">
-              <img src="https://joyacg.com/apple-touch-icon-180x180.png" class="rounded">
+              <img src="/android-chrome-192x192.png" class="rounded">
               <div>
                 <div class="card-header-title">JoyACG官方群組</div>
                 <small class="text-muted"><i class="fa-solid fa-users"></i> <a href="https://t.me/joyacg" target="_blank"><span class="text-danger">@joyacg</span></a></small>
@@ -95,7 +95,7 @@ a{text-decoration:none}
         <div class="col-12 col-sm-6">
           <div class="card text-dark">
             <div class="card-header d-flex align-items-center">
-              <img src="https://joyacg.com/apple-touch-icon-180x180.png" class="rounded">
+              <img src="/android-chrome-192x192.png" class="rounded">
               <div>
                 <div class="card-header-title">JoyACG官方頻道</div>
                 <small class="text-muted"><i class="fa-solid fa-bullhorn"></i> <a href="https://t.me/joyacg_post" target="_blank"><span class="text-danger">@joyacg_post</span></a></small>
@@ -114,16 +114,20 @@ a{text-decoration:none}
 </div>
 
 <!-- iOS安裝提示 -->
-<div class="position-fixed bottom-0 start-50 translate-middle-x p-3 w-100 w-md-auto" style="z-index: 999; max-width: 400px;">
-  <div id="iosInstallToast" class="toast align-items-center text-bg-info border-0 w-100" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-      <div class="toast-body">
-        📱 在 Safari <strong>底部</strong> 點選 <strong>分享按鈕 <i class="fa-solid fa-arrow-up-from-bracket"></i></strong> → <strong>新增至主畫面 <i class="fa-regular fa-square-plus"></i></strong>，即可安裝本頁。
+  <div class="position-fixed bottom-0 start-50 translate-middle-x p-3 w-100 w-md-auto" style="z-index:999; max-width:400px;">
+    <div id="iosInstallToast" class="toast align-items-center bg-info border-0 w-100" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-info">
+       <strong class="me-auto">安裝步驟</strong>
+        <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+         <span aria-hidden="true"></span>
+        </button>
       </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="關閉"></button>
+      <div class="toast-body">
+        <p class="mb-1">① ㅤ在 Safari <strong>底部</strong> 點選「<strong>分享</strong> <i class="fa-solid fa-arrow-up-from-bracket"></i>」按鈕</p>
+        <p class="mb-1">② ㅤ向下滑動至「<strong>添加到主屏幕</strong> <i class="fa-regular fa-square-plus"></i>」即可</p>
+      </div>
     </div>
   </div>
-</div>
 
 <!-- 安卓App 模态框 -->
 <div class="modal fade" id="sitename" tabindex="-1" aria-hidden="true">
