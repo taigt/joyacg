@@ -12,7 +12,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="stylesheet" href="https://unpkg.com/bootswatch@5.3.8/dist/brite/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootswatch@5.3.8/dist/cyborg/bootstrap.min.css">
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.1.0/css/all.min.css">
 <style>
 a{text-decoration:none}
@@ -55,27 +55,10 @@ a{text-decoration:none}
 
         </div>
       </div>
+      <!-- 顶部公告卡片 -->
 
       <!-- 链接卡片区域 -->
       <div class="row g-3">
-
-        <!-- 
-        <div class="col-12 col-sm-6">
-          <div class="card text-dark">
-            <div class="card-header d-flex align-items-center">
-              <img src="" alt="" class="rounded">
-              <div>
-                <div class="card-header-title">title</div>
-                <small class="text-muted">link <span class="text-danger">科學上網</span></small>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="#" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> 點擊訪問</a>
-              <button class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#sitename"><i class="fa-brands fa-android"></i>安卓App</button>
-            </div>
-          </div>
-        </div>
-        -->
 
         <div class="col-12 col-sm-6">
           <div class="card text-dark">
@@ -108,45 +91,28 @@ a{text-decoration:none}
         </div>
 
       </div>
+      <!-- 链接卡片区域 -->
 
     </div>
   </div>
 </div>
 
 <!-- iOS安裝提示 -->
-  <div class="position-fixed bottom-0 start-50 translate-middle-x p-3 w-100 w-md-auto" style="z-index:999; max-width:400px;">
-    <div id="iosInstallToast" class="toast align-items-center bg-info border-0 w-100" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-info">
-       <strong class="me-auto">安裝步驟</strong>
-        <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
-         <span aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="toast-body">
-        <p class="mb-1">① ㅤ在 Safari <strong>底部</strong> 點選「<strong>分享</strong> <i class="fa-solid fa-arrow-up-from-bracket"></i>」按鈕</p>
-        <p class="mb-1">② ㅤ向下滑動至「<strong>添加到主屏幕</strong> <i class="fa-regular fa-square-plus"></i>」即可</p>
-      </div>
+<div class="position-fixed bottom-0 start-50 translate-middle-x p-3 w-100 w-md-auto" style="z-index:999; max-width:400px;">
+  <div id="iosInstallToast" class="toast align-items-center bg-info border-0 w-100" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-info">
+      <strong class="me-auto text-white">安裝步驟</strong>
+      <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true"></span>
+      </button>
     </div>
-  </div>
-
-<!-- 安卓App 模态框 -->
-<div class="modal fade" id="sitename" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered text-dark">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">掃碼下載</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img src="" alt="" class="img-fluid">
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn btn-primary" target="_blank"><i class="fa-solid fa-download"></i> 點擊下載</a>
-        <button class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-      </div>
+    <div class="toast-body">
+      <p class="mb-1">① ㅤ在 Safari <strong>底部</strong> 點選「<strong>分享</strong> <i class="fa-solid fa-arrow-up-from-bracket"></i>」按鈕</p>
+      <p class="mb-1">② ㅤ向下滑動至「<strong>添加到主屏幕</strong> <i class="fa-regular fa-square-plus"></i>」即可</p>
     </div>
   </div>
 </div>
+<!-- iOS安裝提示 -->
 
 <script>
     if ('serviceWorker' in navigator) {
